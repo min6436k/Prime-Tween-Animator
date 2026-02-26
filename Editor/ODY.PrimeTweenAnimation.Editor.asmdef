@@ -1,0 +1,17 @@
+{
+    "name": "ODY.PrimeTweenAnimation.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5607f09ba6c930541875a7d67ddf2122",
+        "GUID:80ecb87cae9c44d19824e70ea7229748"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

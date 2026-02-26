@@ -1,0 +1,26 @@
+{
+  "name": "com.ody.primetween-animator",
+  "version": "0.1.0",
+  "unity": "2018.4",
+  "displayName": "PrimeTween Animator",
+  "description": "A project to better integrate PrimeTween with the Inspector",
+  "dependencies": {
+    "com.kyrylokuzyk.primetween": "1.3.7"
+  },
+  "hideInEditor": false,
+  "keywords": [
+    "Prime",
+    "Tween",
+    "Tweening",
+    "Shake",
+    "Ease",
+    "Easing",
+    "Animate",
+    "Animator"
+  ],
+  "author": {
+    "name": "ODY",
+    "url": "https://github.com/min6436k"
+  },
+  "license": "MIT"
+}

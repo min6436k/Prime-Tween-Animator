@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/PrimeAnimatorEditor.uss?fileID=7433441132597879392&amp;guid=969d13e3237e7444e9c6597659fdd979&amp;type=3#PrimeAnimatorEditor"/>
+    <ui:Button text="PlayAll" data-source-path="" name="PlayAllButton" class="ODY-Button ODY-TopElement" style="margin-top: 10px; margin-bottom: 0;"/>
+    <ui:VisualElement name="PlayByString" style="flex-direction: row;">
+        <ui:Button text="PlayByID" data-source-path="" name="PlayByStringButton" class="ODY-Button ODY-TopElement" style="width: 60%; margin-top: 0; margin-bottom: 0;"/>
+        <ui:TextField label="" placeholder-text="StringID" binding-path="_testPlayID" class="ODY-Button ODY-TopElement" style="width: 50%; margin-bottom: 0; margin-top: 0;"/>
+    </ui:VisualElement>
+    <ToggleableButton binding-path="_playOnStart" text=" Play On Start" name="PlayOnStart" style="margin-bottom: 10px;"/>
+    <ui:ListView reorderable="true" horizontal-scrolling="false" show-foldout-header="true" show-add-remove-footer="true" binding-path="animList" virtualization-method="DynamicHeight" header-title="TweenList" name="AnimList" show-bound-collection-size="true" focusable="true" allow-remove="true" reorder-mode="Animated" fixed-item-height="22" show-alternating-row-backgrounds="ContentOnly" class="ODY-List" style="margin-top: 5px; max-height: 1000px;"/>
+</ui:UXML>

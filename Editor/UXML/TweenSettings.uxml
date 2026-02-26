@@ -1,0 +1,22 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="ShakeSettings" src="project://database/Packages/com.ody.primetween-animator/Editor/UXML/ShakeSettingsRoot.uxml?fileID=9197481963319205126&amp;guid=c57d910bc7f0c7142b0257a499ffdecd&amp;type=3#ShakeSettingsRoot"/>
+    <ui:Template name="TweenSettingsRoot" src="project://database/Packages/com.ody.primetween-animator/Editor/UXML/TweenSettingsRoot.uxml?fileID=9197481963319205126&amp;guid=14b11e371d5d3ad46a7a630965a7e237&amp;type=3#TweenSettingsRoot"/>
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/PrimeAnimatorEditor.uss?fileID=7433441132597879392&amp;guid=969d13e3237e7444e9c6597659fdd979&amp;type=3#PrimeAnimatorEditor"/>
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/ToggleableButton.uss?fileID=7433441132597879392&amp;guid=85da7f9cd1cefe34993364274c6f4dcd&amp;type=3#ToggleableButton"/>
+    <ui:Instance template="TweenSettingsRoot" name="TweenSettingsRoot" style="display: none;"/>
+    <ui:Instance template="ShakeSettings" name="ShakeSettingsRoot" style="display: none;">
+        <AttributeOverrides element-name="StartDelay" value="0"/>
+    </ui:Instance>
+    <ui:VisualElement name="HideableSettings" class="ODY-HideableSettings" style="flex-grow: 1;">
+        <uie:PropertyField binding-path="_callBack" name="CallBack" label="Call Back"/>
+        <ui:VisualElement name="TargetContainer" class="unity-base-field ODY-TweenSettingsRoot ODY-HideableSettings">
+            <uie:ObjectField label="Target" name="Target" binding-path="target" style="flex-grow: 1; flex-basis: 0;"/>
+            <ToggleableButton text="Self" name="Self" binding-path="self" value="true" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 3px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Buttons" class="ODY-HideableSettings" style="flex-grow: 1; flex-direction: row; margin-top: 0; margin-right: -2px; margin-bottom: 0; margin-left: -2px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+            <ToggleableButton binding-path="startFromCurrent" name="StartFromCurrent" text="Relative" style="flex-grow: 1;"/>
+            <ToggleableButton binding-path="additive" name="Additive" text="Additive" style="flex-grow: 1;"/>
+            <ToggleableButton binding-path="reverse" name="Reverse" text="Reverse" style="flex-grow: 1;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

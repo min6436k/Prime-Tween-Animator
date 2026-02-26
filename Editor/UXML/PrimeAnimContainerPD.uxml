@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/PrimeAnimatorEditor.uss?fileID=7433441132597879392&amp;guid=969d13e3237e7444e9c6597659fdd979&amp;type=3#PrimeAnimatorEditor"/>
+    <ui:VisualElement style="border-bottom-width: 0; border-left-color: rgba(0, 0, 0, 0.5); border-right-color: rgba(0, 0, 0, 0.5); border-top-color: rgba(0, 0, 0, 0.5); border-bottom-color: rgba(0, 0, 0, 0.5); border-top-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1px; flex-direction: row; justify-content: flex-end; border-top-width: 0; padding-top: 0; margin-bottom: 0; padding-bottom: 0; margin-top: 0;">
+        <ui:Foldout name="RootFoldout" focusable="true" value="false" toggle-on-label-click="true" binding-path="_foldOutViewData" class="ODY-RootFoldout" style="margin-top: 0; padding-top: 0; width: 100%;"/>
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; width: 80%; min-height: 22px; padding-right: 13px; position: absolute; top: 2px;">
+            <ui:TextField label="" placeholder-text="PlayID" name="PlayIDField" binding-path="_playID" style="width: 45%; margin-right: 3px;"/>
+            <ui:EnumField label="" view-data-key="TweenType" name="TweenType" binding-path="_tweenType" include-obsolete-values="false" style="width: 40%; margin-right: 3px; margin-left: 0;"/>
+            <ui:Button text="Play" name="PlayButton" style="margin-left: 0; width: 15%; margin-right: 3px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

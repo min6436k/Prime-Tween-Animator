@@ -1,0 +1,27 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/PrimeAnimatorEditor.uss?fileID=7433441132597879392&amp;guid=969d13e3237e7444e9c6597659fdd979&amp;type=3#PrimeAnimatorEditor"/>
+    <ui:VisualElement name="ShakeSettingsRoot" enabled="true" class="ODY-TweenSettingsRoot" style="display: flex;">
+        <uie:PropertyField label="Strength" binding-path="shakeSettings.strength" name="Strength"/>
+        <ui:FloatField label="Frequency" binding-path="shakeSettings.frequency" name="Frequency"/>
+        <ui:VisualElement name="Time" class="unity-base-field">
+            <ui:FloatField label="Duration" value="42.2" binding-path="shakeSettings.duration" password="false" readonly="false" enabled="true" auto-correction="true" name="Duration" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"/>
+            <ToggleableButton name="UseUnscaledTime" text="UnscaleTime" binding-path="shakeSettings.useUnscaledTime" style="margin-left: 3px; margin-top: 0; margin-right: 0; margin-bottom: 0; padding-top: 0; padding-right: 8px; padding-bottom: 0; padding-left: 8px; font-size: 11px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Delay" class="unity-base-field">
+            <ui:Label text="Delay" class="unity-base-field__label"/>
+            <ui:VisualElement name="Delay" class="unity-base-field ODY-HorizonContainer" style="margin-right: 0; margin-top: 0; margin-bottom: 0; margin-left: 0; flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-basis: 0;">
+                <ui:FloatField label="Start" binding-path="shakeSettings.startDelay" name="StartDelay" style="align-items: center; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; flex-grow: 1;"/>
+                <ui:FloatField label="End" binding-path="shakeSettings.endDelay" name="EndDelay" style="margin-right: 0; align-items: center; margin-top: 0; margin-bottom: 0; margin-left: 0; flex-grow: 1;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Falloff" class="unity-base-field">
+            <ui:EnumField label="Falloff Ease" binding-path="shakeSettings.falloffEase" name="Ease" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"/>
+            <ToggleableButton text="Fall off" name="EnableFalloff" binding-path="shakeSettings.enableFalloff" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 3px; padding-top: 0; padding-right: 8px; padding-bottom: 0; padding-left: 8px;"/>
+        </ui:VisualElement>
+        <uie:CurveField label="Strength Over Time" binding-path="shakeSettings.strengthOverTime" name="CustomEase"/>
+        <ui:Slider label="Asymmetry" low-value="0" high-value="1" binding-path="shakeSettings.asymmetry" name="Asymmetry" fill="false" show-input-field="true"/>
+        <ui:EnumField label="Shakes Ease" binding-path="shakeSettings.easeBetweenShakes" name="EaseBetweenShakes"/>
+        <ui:IntegerField label="Cycles" binding-path="shakeSettings.cycles" name="Cycles"/>
+        <ui:EnumField label="Update Type" binding-path="shakeSettings._updateType" name="UpdateType"/>
+    </ui:VisualElement>
+</ui:UXML>

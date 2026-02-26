@@ -1,0 +1,24 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/PrimeAnimatorEditor.uss?fileID=7433441132597879392&amp;guid=969d13e3237e7444e9c6597659fdd979&amp;type=3#PrimeAnimatorEditor"/>
+    <Style src="project://database/Packages/com.ody.primetween-animator/Editor/Styles/ToggleableButton.uss?fileID=7433441132597879392&amp;guid=85da7f9cd1cefe34993364274c6f4dcd&amp;type=3#ToggleableButton"/>
+    <ui:VisualElement name="TweenSettingsRoot" enabled="true" class="ODY-TweenSettingsRoot" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+        <uie:PropertyField binding-path="tweenSettings.startValue" name="StartValue"/>
+        <uie:PropertyField binding-path="tweenSettings.endValue" name="EndValue"/>
+        <ui:VisualElement name="Time" class="unity-base-field">
+            <ui:FloatField label="Duration" value="42.2" binding-path="tweenSettings.settings.duration" password="false" readonly="false" enabled="true" auto-correction="true" name="Duration" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"/>
+            <ToggleableButton name="UseUnscaledTime" text="UnscaleTime" binding-path="tweenSettings.settings.useUnscaledTime" style="margin-left: 3px; margin-top: 0; margin-right: 0; margin-bottom: 0; padding-top: 0; padding-right: 8px; padding-bottom: 0; padding-left: 8px; font-size: 11px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Delay" class="unity-base-field ODY-HorizonContainer">
+            <ui:Label text="Delay" class="unity-base-field__label"/>
+            <ui:VisualElement name="Delay" class="ODY-HorizonContainer" style="margin-right: 0; margin-top: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-direction: row; flex-grow: 1;">
+                <ui:FloatField label="Start" binding-path="tweenSettings.settings.startDelay" name="StartDelay" style="align-items: center; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; flex-grow: 1;"/>
+                <ui:FloatField label="End" binding-path="tweenSettings.settings.endDelay" name="EndDelay" style="margin-right: 0; align-items: center; margin-top: 0; margin-bottom: 0; margin-left: 0; flex-grow: 1; padding-right: 0;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:EnumField label="Ease" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" binding-path="tweenSettings.settings.ease" name="Ease"/>
+        <uie:CurveField label="Custom Ease" value="{0,0,0,0,0,0,Free,Free,False,None};{5,8,0,0,0,0,Free,Free,False,None};{10,4,0,0,0,0,Free,Free,False,None}+(ClampForever,ClampForever)" binding-path="tweenSettings.settings.customEase" name="CustomEase"/>
+        <ui:IntegerField label="Cycles" value="42" name="Cycles" binding-path="tweenSettings.settings.cycles"/>
+        <ui:EnumField label="Cycle Mode" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" binding-path="tweenSettings.settings.cycleMode" name="CycleMode"/>
+        <ui:EnumField label="Update Type" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" binding-path="tweenSettings.settings._updateType" name="UpdateType"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "unity": "2018.4",
   "displayName": "PrimeTween Animator",
-  "description": "A project to better integrate PrimeTween with the Inspector",
+  "description": "Unity Inspector Extension for PrimeTween.",
   "dependencies": {
     "com.kyrylokuzyk.primetween": "1.3.7"
   },

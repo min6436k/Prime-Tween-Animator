@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace ODY.Editor.Helper
 {
-    public static class UITKHelper
+    public static partial class UITKHelper
     {
         #region FindObjectFromPropertyPath
 

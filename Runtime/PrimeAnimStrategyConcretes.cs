@@ -77,7 +77,9 @@ namespace ODY.PrimeTweenAnimation
         [Serializable]
         public abstract class AdditiveAnimBase<T> : DirectionAnimBase<T> where T : struct
         {
+            #if PRIME_TWEEN_EXPERIMENTAL
             [SerializeField] protected bool additive;
+            #endif
         }
 
         [Serializable]
@@ -158,9 +160,10 @@ namespace ODY.PrimeTweenAnimation
         {
             public override Tween Play()
             {
-                return additive
-                    ? Tween.PositionAdditive(target, EndValue, ApplyDirection.settings)
-                    : Tween.Position(target, ApplyDirection);
+                #if PRIME_TWEEN_EXPERIMENTAL
+                if (additive) return Tween.PositionAdditive(target, EndValue, ApplyDirection.settings);
+                #endif
+                return Tween.Position(target, ApplyDirection);
             }
         }
 
@@ -168,18 +171,24 @@ namespace ODY.PrimeTweenAnimation
         public sealed class Rotation : TransformAnimBase
         {
             public override Tween Play()
-                => additive
-                    ? Tween.RotationAdditive(target, EndValue, ApplyDirection.settings)
-                    : Tween.Rotation(target, ApplyDirection);
+            {
+                #if PRIME_TWEEN_EXPERIMENTAL
+                if (additive) return Tween.RotationAdditive(target, EndValue, ApplyDirection.settings);
+                #endif
+                return Tween.Rotation(target, ApplyDirection);
+            }
         }
 
         [Serializable, PrimeAnimStrategy(TweenType.Scale)]
         public sealed class Scale : TransformAnimBase
         {
             public override Tween Play()
-                => additive
-                    ? Tween.ScaleAdditive(target, EndValue, ApplyDirection.settings)
-                    : Tween.Scale(target, ApplyDirection);
+            {
+                #if PRIME_TWEEN_EXPERIMENTAL
+                if (additive) return Tween.ScaleAdditive(target, EndValue, ApplyDirection.settings);
+                #endif
+                return Tween.Scale(target, ApplyDirection);
+            }
         }
 
         #endregion
@@ -191,21 +200,23 @@ namespace ODY.PrimeTweenAnimation
         {
             public override Tween Play()
             {
-                return additive
-                    ? Tween.LocalPositionAdditive(target, EndValue, ApplyDirection.settings)
-                    : Tween.LocalPosition(target, ApplyDirection);
+                #if PRIME_TWEEN_EXPERIMENTAL
+                if (additive) return Tween.LocalPositionAdditive(target, EndValue, ApplyDirection.settings);
+                #endif
+                return Tween.LocalPosition(target, ApplyDirection);
             }
         }
-
-
 
         [Serializable, PrimeAnimStrategy(TweenType.LocalRotate)]
         public sealed class LocalRotation : TransformAnimBase
         {
             public override Tween Play()
-                => additive
-                    ? Tween.LocalRotationAdditive(target, EndValue, ApplyDirection.settings)
-                    : Tween.LocalRotation(target, ApplyDirection);
+            {
+                #if PRIME_TWEEN_EXPERIMENTAL
+                if (additive) return Tween.LocalRotationAdditive(target, EndValue, ApplyDirection.settings);
+                #endif
+                return Tween.LocalRotation(target, ApplyDirection);
+            }
         }
 
 

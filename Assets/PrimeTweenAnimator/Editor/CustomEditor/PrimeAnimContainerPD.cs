@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Linq;
-using ODY.Editor.Helper;
-using PrimeTween;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -17,7 +14,7 @@ namespace ODY.PrimeTweenAnimation.Editor
 
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            _uxml ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.ody.primetween-animator/Editor/UXML/PrimeAnimContainerPD.uxml");
+            _uxml ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UxmlPath+"PrimeAnimContainerPD.uxml");
 
             VisualElement root = _uxml.CloneTree();
 

@@ -49,7 +49,7 @@ namespace ODY.PrimeTweenAnimation
                 tweenSettings.settings.duration = 1;
             }
 
-            protected TweenSettings<T> ApplyDirection
+            protected TweenSettings<T> DirectedSettings
             {
                 get
                 {
@@ -151,6 +151,35 @@ namespace ODY.PrimeTweenAnimation
             protected void OnValueChange(T value) => _callBack.Invoke(value);
         }
 
+        
+        public static class MaterialPropertyCache
+        {
+            private static readonly Dictionary<string, int> PropertyIDCache = new();
+    
+            public static int GetPropertyID(string name)
+            {
+                if (string.IsNullOrEmpty(name)) return -1;
+                if (!PropertyIDCache.TryGetValue(name, out int id))
+                    id = PropertyIDCache[name] = Shader.PropertyToID(name);
+                return id;
+            }
+        }
+        [Serializable]
+        public abstract class MaterialProperty<T> : DirectionAnimBase<T> where T : struct
+        {
+            [SerializeField] protected string propertyName;
+            [SerializeField] protected Material target;
+            [NonSerialized] private int _cachedID = -1;
+            protected int PropertyID 
+            {
+                get 
+                {
+                    if (_cachedID == -1) _cachedID = MaterialPropertyCache.GetPropertyID(propertyName);
+                    return _cachedID;
+                }
+            }
+        }
+        
         #endregion
 
         #region Transform
@@ -161,9 +190,9 @@ namespace ODY.PrimeTweenAnimation
             public override Tween Play()
             {
                 #if PRIME_TWEEN_EXPERIMENTAL
-                if (additive) return Tween.PositionAdditive(target, EndValue, ApplyDirection.settings);
+                if (additive) return Tween.PositionAdditive(target, EndValue, DirectedSettings.settings);
                 #endif
-                return Tween.Position(target, ApplyDirection);
+                return Tween.Position(target, DirectedSettings);
             }
         }
 
@@ -173,9 +202,9 @@ namespace ODY.PrimeTweenAnimation
             public override Tween Play()
             {
                 #if PRIME_TWEEN_EXPERIMENTAL
-                if (additive) return Tween.RotationAdditive(target, EndValue, ApplyDirection.settings);
+                if (additive) return Tween.RotationAdditive(target, EndValue, DirectedSettings.settings);
                 #endif
-                return Tween.Rotation(target, ApplyDirection);
+                return Tween.Rotation(target, DirectedSettings);
             }
         }
 
@@ -185,9 +214,9 @@ namespace ODY.PrimeTweenAnimation
             public override Tween Play()
             {
                 #if PRIME_TWEEN_EXPERIMENTAL
-                if (additive) return Tween.ScaleAdditive(target, EndValue, ApplyDirection.settings);
+                if (additive) return Tween.ScaleAdditive(target, EndValue, DirectedSettings.settings);
                 #endif
-                return Tween.Scale(target, ApplyDirection);
+                return Tween.Scale(target, DirectedSettings);
             }
         }
 
@@ -201,9 +230,9 @@ namespace ODY.PrimeTweenAnimation
             public override Tween Play()
             {
                 #if PRIME_TWEEN_EXPERIMENTAL
-                if (additive) return Tween.LocalPositionAdditive(target, EndValue, ApplyDirection.settings);
+                if (additive) return Tween.LocalPositionAdditive(target, EndValue, DirectedSettings.settings);
                 #endif
-                return Tween.LocalPosition(target, ApplyDirection);
+                return Tween.LocalPosition(target, DirectedSettings);
             }
         }
 
@@ -213,9 +242,9 @@ namespace ODY.PrimeTweenAnimation
             public override Tween Play()
             {
                 #if PRIME_TWEEN_EXPERIMENTAL
-                if (additive) return Tween.LocalRotationAdditive(target, EndValue, ApplyDirection.settings);
+                if (additive) return Tween.LocalRotationAdditive(target, EndValue, DirectedSettings.settings);
                 #endif
-                return Tween.LocalRotation(target, ApplyDirection);
+                return Tween.LocalRotation(target, DirectedSettings);
             }
         }
 
@@ -290,11 +319,11 @@ namespace ODY.PrimeTweenAnimation
             {
                 return target switch
                 {
-                    SpriteRenderer sr => Tween.Alpha(sr, ApplyDirection),
-                    Graphic img => Tween.Alpha(img, ApplyDirection),
-                    Material mat => Tween.MaterialAlpha(mat, ApplyDirection),
-                    Renderer ren => Tween.MaterialAlpha(RendererToMaterial(ren), ApplyDirection),
-                    CanvasGroup cng => Tween.Alpha(cng, ApplyDirection),
+                    SpriteRenderer sr => Tween.Alpha(sr, DirectedSettings),
+                    Graphic img => Tween.Alpha(img, DirectedSettings),
+                    Material mat => Tween.MaterialAlpha(mat, DirectedSettings),
+                    Renderer ren => Tween.MaterialAlpha(RendererToMaterial(ren), DirectedSettings),
+                    CanvasGroup cng => Tween.Alpha(cng, DirectedSettings),
                     _ => default
                 };
             }
@@ -317,12 +346,12 @@ namespace ODY.PrimeTweenAnimation
             {
                 return target switch
                 {
-                    SpriteRenderer sr => Tween.Color(sr, ApplyDirection),
-                    Graphic img => Tween.Color(img, ApplyDirection),
-                    Material mat => Tween.MaterialColor(mat, ApplyDirection),
-                    Renderer ren => Tween.MaterialColor(RendererToMaterial(ren), ApplyDirection),
-                    Light light => Tween.LightColor(light, ApplyDirection),
-                    Camera cam => Tween.CameraBackgroundColor(cam, ApplyDirection),
+                    SpriteRenderer sr => Tween.Color(sr, DirectedSettings),
+                    Graphic img => Tween.Color(img, DirectedSettings),
+                    Material mat => Tween.MaterialColor(mat, DirectedSettings),
+                    Renderer ren => Tween.MaterialColor(RendererToMaterial(ren), DirectedSettings),
+                    Light light => Tween.LightColor(light, DirectedSettings),
+                    Camera cam => Tween.CameraBackgroundColor(cam, DirectedSettings),
                     _ => default
                 };
             }
@@ -337,38 +366,38 @@ namespace ODY.PrimeTweenAnimation
         {
             public override Tween Play()
             {
-                return Tween.Custom(ApplyDirection, OnValueChange);
+                return Tween.Custom(DirectedSettings, OnValueChange);
             }
         }
 
         [Serializable, PrimeAnimStrategy(TweenType.CustomVector2)]
         public sealed class CustomVector2 : CustomBase<Vector2>
         {
-            public override Tween Play() => Tween.Custom(ApplyDirection, OnValueChange);
+            public override Tween Play() => Tween.Custom(DirectedSettings, OnValueChange);
         }
 
         [Serializable, PrimeAnimStrategy(TweenType.CustomVector3)]
         public sealed class CustomVector3 : CustomBase<Vector3>
         {
-            public override Tween Play() => Tween.Custom(ApplyDirection, OnValueChange);
+            public override Tween Play() => Tween.Custom(DirectedSettings, OnValueChange);
         }
 
         [Serializable, PrimeAnimStrategy(TweenType.CustomQuaternion)]
         public sealed class CustomQuaternion : CustomBase<Quaternion>
         {
-            public override Tween Play() => Tween.Custom(ApplyDirection, OnValueChange);
+            public override Tween Play() => Tween.Custom(DirectedSettings, OnValueChange);
         }
 
         [Serializable, PrimeAnimStrategy(TweenType.CustomColor)]
         public sealed class CustomColor : CustomBase<Color>
         {
-            public override Tween Play() => Tween.Custom(ApplyDirection, OnValueChange);
+            public override Tween Play() => Tween.Custom(DirectedSettings, OnValueChange);
         }
 
         [Serializable, PrimeAnimStrategy(TweenType.CustomRect)]
         public sealed class CustomRect : CustomBase<Rect>
         {
-            public override Tween Play() => Tween.Custom(ApplyDirection, OnValueChange);
+            public override Tween Play() => Tween.Custom(DirectedSettings, OnValueChange);
         }
 
         #endregion
@@ -405,5 +434,21 @@ namespace ODY.PrimeTweenAnimation
         }
 
         #endregion
+        
+        // [Serializable, PrimeAnimStrategy(TweenType.MaterialVector4)]
+        // public sealed class MaterialPropertyVector4 : MaterialProperty<Vector4>
+        // { 
+        //     public override Tween Play() => Tween.MaterialProperty(target, PropertyID,DirectedSettings);
+        // }
+        //
+        // [Serializable, PrimeAnimStrategy(TweenType.MaterialFloat)]
+        // public sealed class MaterialPropertyFloat : MaterialProperty<float>
+        // {
+        //     public MaterialPropertyFloat()
+        //     {
+        //         
+        //     }
+        //     public override Tween Play() => Tween.MaterialProperty(target, PropertyID,DirectedSettings);
+        // }
     }
 }

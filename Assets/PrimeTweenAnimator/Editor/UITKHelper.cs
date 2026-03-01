@@ -8,6 +8,12 @@ namespace ODY.Editor.Helper
 {
     public static partial class UITKHelper
     {
+#if ODY_DEVELOP
+        internal const string UxmlPath = "Assets/PrimeTweenAnimator/Editor/UXML/";
+#else
+        internal const string UxmlPath = "Packages/com.ody.primetween-animator/Editor/UXML/";
+#endif
+        
         #region FindObjectFromPropertyPath
 
         /// <summary>

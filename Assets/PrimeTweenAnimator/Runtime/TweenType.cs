@@ -19,12 +19,14 @@ namespace ODY.PrimeTweenAnimation
         [InspectorName("Shake/Rotation")] ShakeRotation,
         [InspectorName("Shake/Scale")] ShakeScale,
         [InspectorName("Shake/Camera")] ShakeCamera,
-        [InspectorName("Custom/float")] CustomFloat,
+        [InspectorName("Custom/Float")] CustomFloat,
         [InspectorName("Custom/Vector2")] CustomVector2,
         [InspectorName("Custom/Vector3")] CustomVector3,
         [InspectorName("Custom/Quaternion")] CustomQuaternion,
         [InspectorName("Custom/Color")] CustomColor,
         [InspectorName("Custom/Rect")] CustomRect,
+        // [InspectorName("MaterialProperty/Vector4")] MaterialVector4,
+        // [InspectorName("MaterialProperty/float")] MaterialFloat,
         Delay,
     }
 }

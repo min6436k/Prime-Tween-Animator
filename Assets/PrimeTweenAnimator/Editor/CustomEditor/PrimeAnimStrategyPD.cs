@@ -1,5 +1,4 @@
-﻿using System;
-using PrimeTween;
+﻿using PrimeTween;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -19,9 +18,7 @@ namespace ODY.PrimeTweenAnimation.Editor
 
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            _tweenSettingsUXML ??=
-                AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(
-                    "Packages/com.ody.primetween-animator/Editor/UXML/TweenSettings.uxml");
+            _tweenSettingsUXML ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UITKHelper.UxmlPath+"TweenSettings.uxml");
 
             var root = new VisualElement();
 

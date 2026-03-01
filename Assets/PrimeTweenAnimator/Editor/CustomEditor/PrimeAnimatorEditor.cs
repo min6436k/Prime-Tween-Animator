@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
+using ODY.Editor.Helper;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -19,7 +19,7 @@ namespace ODY.PrimeTweenAnimation.Editor
 
         public override VisualElement CreateInspectorGUI()
         {
-            _uxml ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.ody.primetween-animator/Editor/UXML/PrimeAnimatorEditor.uxml");
+            _uxml ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UITKHelper.UxmlPath+"PrimeAnimatorEditor.uxml");
             
             var root = _uxml.CloneTree();
 

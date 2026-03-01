@@ -6,7 +6,7 @@
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/min6436k/Prime-Tween-Animator?tab=MIT-1-ov-file)
 [![Unity](https://img.shields.io/badge/Unity-2018.4%2B-111111?style=flat&logo=unity&logoColor=white)](https://unity.com/)
-[![version](https://img.shields.io/github/package-json/v/min6436k/Prime-Tween-Animator?color=lightgray)](CHANGELOG.md)
+[![version](https://img.shields.io/github/package-json/v/min6436k/Prime-Tween-Animator?filename=Assets%2FPrimeTweenAnimator%2Fpackage.json&color=lightgray)](CHANGELOG.md)
 [![dependency](https://img.shields.io/badge/dependency-PrimeTween-ab19cc.svg)](https://github.com/KyryloKuzyk/PrimeTween)
 
 🌐 : [English](README.md) | [한국어](README.ko.md)
@@ -41,7 +41,7 @@ You can install this package via the Unity Package Manager (UPM).
 2. Click the `+` button in the top-left corner and select `Add package from git URL...`.
 3. Enter the following URL and click `Add`:
    ```
-   https://github.com/min6436k/Prime-Tween-Animator.git
+   https://github.com/min6436k/Prime-Tween-Animator.git?path=Assets/PrimeTweenAnimator
    ```
    Note: Depending on your Unity version, the button may say `Install` instead of `Add`.
 

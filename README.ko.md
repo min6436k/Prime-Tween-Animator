@@ -6,7 +6,7 @@
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/min6436k/Prime-Tween-Animator?tab=MIT-1-ov-file)
 [![Unity](https://img.shields.io/badge/Unity-2018.4%2B-111111?style=flat&logo=unity&logoColor=white)](https://unity.com/)
-[![version](https://img.shields.io/github/package-json/v/min6436k/Prime-Tween-Animator?color=lightgray)](CHANGELOG.md)
+[![version](https://img.shields.io/github/package-json/v/min6436k/Prime-Tween-Animator?filename=Assets%2FPrimeTweenAnimator%2Fpackage.json&color=lightgray)](CHANGELOG.md)
 [![dependency](https://img.shields.io/badge/dependency-PrimeTween-ab19cc.svg)](https://github.com/KyryloKuzyk/PrimeTween)
 
 🌐 : [English](README.md) | [한국어](README.ko.md)
@@ -41,7 +41,7 @@ PrimeTween Animator는 뛰어난 Tweening 에셋인 PrimeTween을 코드 작성 
 2. 좌측 상단의 `+` 버튼을 클릭하고 `Add package from git URL...` 을 선택합니다.
 3. 아래의 URL을 입력하고 `Add`를 누릅니다:
    ```
-   https://github.com/min6436k/Prime-Tween-Animator.git
+   https://github.com/min6436k/Prime-Tween-Animator.git?path=Assets/PrimeTweenAnimator
    ```
    ※ 유니티 버전에 따라 `Add` 대신 `Install`로 표시될 수 있습니다.
 

@@ -1,1 +1,8 @@
-/*.meta
+/*
+
+!/Assets/
+/Assets/*
+!/Assets/PrimeTweenAnimator/
+
+!/*.md
+!/*.json

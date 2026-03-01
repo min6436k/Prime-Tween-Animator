@@ -6,7 +6,6 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
 namespace ODY.PrimeTweenAnimation.Editor
 {
     [CustomEditor(typeof(PrimeTweenAnimator))]
